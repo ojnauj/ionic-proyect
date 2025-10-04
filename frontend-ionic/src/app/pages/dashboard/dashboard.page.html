@@ -1,0 +1,127 @@
+<ion-content [fullscreen]="true" class="dashboard-background">
+  <!-- Header con glass effect -->
+  <ion-header [translucent]="true" class="dashboard-header">
+    <ion-toolbar class="header-toolbar">
+      <ion-title class="header-title">MIApp</ion-title>
+      
+      <ion-buttons slot="end">
+        <ion-button (click)="logout()" fill="clear" class="logout-button">
+          <ion-icon name="log-out" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="dashboard-container">
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <div class="welcome-content">
+        <h1 class="welcome-title">{{ getWelcomeMessage() }},</h1>
+        <h2 class="user-name">{{ user?.nombre }}! 👋</h2>
+        <p class="welcome-subtitle">Es un placer tenerte de vuelta</p>
+      </div>
+      <div class="user-avatar">
+        <div class="avatar-circle">
+          {{ getUserInitials() }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Cards Grid -->
+    <div class="stats-grid">
+      <ion-card class="stat-card glass-effect">
+        <div class="stat-icon primary">
+          <ion-icon name="shield-checkmark"></ion-icon>
+        </div>
+        <div class="stat-content">
+          <h3 class="stat-value">Activa</h3>
+          <p class="stat-label">Sesión</p>
+        </div>
+      </ion-card>
+
+      <ion-card class="stat-card glass-effect">
+        <div class="stat-icon secondary">
+          <ion-icon name="time"></ion-icon>
+        </div>
+        <div class="stat-content">
+          <h3 class="stat-value">100%</h3>
+          <p class="stat-label">Disponible</p>
+        </div>
+      </ion-card>
+
+      <ion-card class="stat-card glass-effect">
+        <div class="stat-icon tertiary">
+          <ion-icon name="calendar"></ion-icon>
+        </div>
+        <div class="stat-content">
+          <h3 class="stat-value">{{ currentDate }}</h3>
+          <p class="stat-label">Hoy</p>
+        </div>
+      </ion-card>
+
+      <ion-card class="stat-card glass-effect">
+        <div class="stat-icon success">
+          <ion-icon name="trending-up"></ion-icon>
+        </div>
+        <div class="stat-content">
+          <h3 class="stat-value">Premium</h3>
+          <p class="stat-label">Cuenta</p>
+        </div>
+      </ion-card>
+    </div>
+
+    <!-- User Info Card -->
+    <ion-card class="info-card glass-effect">
+      <ion-card-header class="info-card-header">
+        <ion-card-title class="info-card-title">
+          <ion-icon name="person-circle" class="title-icon"></ion-icon>
+          Información Personal
+        </ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content class="info-card-content">
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="info-icon">
+              <ion-icon name="id-card"></ion-icon>
+            </div>
+            <div class="info-details">
+              <label>ID de Usuario</label>
+              <p><strong>{{ user?.id }}</strong></p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <ion-icon name="person"></ion-icon>
+            </div>
+            <div class="info-details">
+              <label>Nombre Completo</label>
+              <p><strong>{{ user?.nombre }}</strong></p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <ion-icon name="mail"></ion-icon>
+            </div>
+            <div class="info-details">
+              <label>Correo Electrónico</label>
+              <p><strong>{{ user?.email }}</strong></p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <ion-icon name="key"></ion-icon>
+            </div>
+            <div class="info-details">
+              <label>Tipo de Cuenta</label>
+              <p><strong>Usuario Premium</strong></p>
+            </div>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

@@ -1,0 +1,39 @@
+/* Alert Styles para consistencia */
+.alert-cancel {
+  color: var(--ion-color-medium) !important;
+}
+
+.alert-confirm {
+  color: var(--ion-color-primary) !important;
+  font-weight: 600 !important;
+}
+
+/* Mejoras adicionales para el dashboard */
+.stat-card, .info-card, .actions-card, .activity-card {
+  transition: all 0.3s ease;
+}
+
+.stat-card:active, .action-button:active {
+  transition: transform 0.1s ease;
+}
+
+/* Scroll personalizado */
+ion-content::part(scroll) {
+  padding-bottom: 20px;
+}
+
+/* Mejoras de rendimiento para animaciones */
+.glass-effect {
+  will-change: transform, backdrop-filter;
+}
+
+/* Soporte para dispositivos con notch */
+.dashboard-header {
+  padding-top: constant(safe-area-inset-top);
+  padding-top: env(safe-area-inset-top);
+}
+
+.dashboard-container {
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}

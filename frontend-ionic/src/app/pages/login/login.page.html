@@ -1,0 +1,88 @@
+<ion-content [fullscreen]="true" class="login-background" [scrollY]="true">
+  <div class="login-container">
+    <!-- Header con diseño Samsung One UI -->
+    <div class="header-section glass-effect">
+      <h1 class="app-title">MiApp</h1>
+      <p class="app-subtitle">{{ isRegister ? 'Crea tu cuenta' : 'Bienvenido de vuelta' }}</p>
+    </div>
+
+    <!-- Card de login/register con glassmorphism -->
+    <ion-card class="auth-card">
+      <ion-card-header>
+        <ion-card-title class="card-title">
+          {{ isRegister ? 'Crear Cuenta' : 'Iniciar Sesión' }}
+        </ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content class="card-content">
+        <form (ngSubmit)="onSubmit()">
+          <!-- Campo nombre (solo en registro) -->
+          <ion-item *ngIf="isRegister" class="input-item">
+            <ion-label position="stacked" class="input-label">Nombre completo</ion-label>
+            <ion-input 
+              type="text" 
+              [(ngModel)]="nombre" 
+              name="nombre"
+              placeholder="Ingresa tu nombre completo"
+              class="custom-input"
+              required>
+            </ion-input>
+          </ion-item>
+
+          <!-- Campo email -->
+          <ion-item class="input-item">
+            <ion-label position="stacked" class="input-label">Correo electrónico</ion-label>
+            <ion-input 
+              type="email" 
+              [(ngModel)]="email" 
+              name="email"
+              placeholder="tu.correo@ejemplo.com"
+              class="custom-input"
+              required>
+            </ion-input>
+          </ion-item>
+
+          <!-- Campo password -->
+          <ion-item class="input-item">
+            <ion-label position="stacked" class="input-label">Contraseña</ion-label>
+            <ion-input 
+              type="password" 
+              [(ngModel)]="password" 
+              name="password"
+              placeholder="••••••••"
+              class="custom-input"
+              required>
+            </ion-input>
+          </ion-item>
+
+          <!-- Botón submit con gradiente -->
+          <ion-button 
+            type="submit" 
+            expand="block" 
+            class="submit-button"
+            [disabled]="isLoading">
+            <ion-spinner *ngIf="isLoading" name="crescent"></ion-spinner>
+            <span *ngIf="!isLoading">
+              {{ isRegister ? 'Crear Cuenta' : 'Continuar' }}
+            </span>
+          </ion-button>
+        </form>
+
+        <!-- Toggle entre login/register -->
+        <div class="toggle-section">
+          <p class="toggle-text">
+            {{ isRegister ? '¿Ya tienes cuenta?' : '¿Primera vez aquí?' }}
+            <a (click)="toggleMode()" class="toggle-link">
+              {{ isRegister ? 'Iniciar sesión' : 'Crear cuenta' }}
+            </a>
+          </p>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Footer minimalista -->
+    <div class="footer-section">
+      <p class="footer-text">© 2025 MiApp · Diseñado con ❤️</p>
+    </div>
+  </div>
+</ion-content>
