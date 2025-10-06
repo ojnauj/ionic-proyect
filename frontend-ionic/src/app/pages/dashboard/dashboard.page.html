@@ -70,6 +70,35 @@
       </ion-card>
     </div>
 
+    <!-- Navigation Cards Grid -->
+    <div class="navigation-grid">
+      <ion-card class="nav-card glass-effect" (click)="navigateTo('clientes')">
+        <div class="nav-icon primary">
+          <ion-icon name="people"></ion-icon>
+        </div>
+        <div class="nav-content">
+          <h3 class="nav-title">Clientes</h3>
+          <p class="nav-subtitle">Gestionar lista de clientes</p>
+        </div>
+        <div class="nav-arrow">
+          <ion-icon name="chevron-forward"></ion-icon>
+        </div>
+      </ion-card>
+
+      <ion-card class="nav-card glass-effect" (click)="navigateTo('productos')">
+        <div class="nav-icon secondary">
+          <ion-icon name="cube"></ion-icon>
+        </div>
+        <div class="nav-content">
+          <h3 class="nav-title">Productos</h3>
+          <p class="nav-subtitle">Gestionar catálogo</p>
+        </div>
+        <div class="nav-arrow">
+          <ion-icon name="chevron-forward"></ion-icon>
+        </div>
+      </ion-card>
+    </div>
+
     <!-- User Info Card -->
     <ion-card class="info-card glass-effect">
       <ion-card-header class="info-card-header">

@@ -183,6 +183,79 @@
   }
 }
 
+// Navigation Grid
+.navigation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+
+  .nav-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    .nav-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 20px;
+      
+      ion-icon {
+        font-size: 2rem;
+        color: white;
+      }
+
+      &.primary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+      
+      &.secondary {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      }
+    }
+
+    .nav-content {
+      flex: 1;
+      
+      .nav-title {
+        color: white;
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin: 0 0 8px 0;
+      }
+      
+      .nav-subtitle {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1.2rem;
+        margin: 0;
+        font-weight: 500;
+      }
+    }
+
+    .nav-arrow {
+      ion-icon {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
 // Glass Effect Base
 .glass-effect {
   background: rgba(255, 255, 255, 0.1);
@@ -273,6 +346,7 @@
 // Animations
 .hero-section,
 .stats-grid,
+.navigation-grid,
 .info-card {
   animation: slideUp 0.6s ease-out;
 }
@@ -297,6 +371,11 @@
   
   .stats-grid {
     grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+  }
+  
+  .navigation-grid {
+    grid-template-columns: repeat(2, 1fr);
     gap: 40px;
   }
   
@@ -358,6 +437,32 @@
     }
   }
   
+  .navigation-grid {
+    gap: 50px;
+    
+    .nav-card {
+      padding: 40px 35px;
+      min-height: 140px;
+      
+      .nav-icon {
+        width: 80px;
+        height: 80px;
+        
+        ion-icon {
+          font-size: 2.2rem;
+        }
+      }
+      
+      .nav-title {
+        font-size: 2rem;
+      }
+      
+      .nav-subtitle {
+        font-size: 1.3rem;
+      }
+    }
+  }
+  
   .info-card {
     .info-card-header {
       padding: 40px 40px 30px;
@@ -408,6 +513,11 @@
 // Hover effects for desktop
 @media (hover: hover) {
   .stat-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  }
+  
+  .nav-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
   }

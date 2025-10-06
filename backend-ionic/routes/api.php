@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\ClienteController;
 
 // Rutas públicas
 Route::post('login', [UsuarioController::class, 'login']);
@@ -12,4 +13,7 @@ Route::post('register', [UsuarioController::class, 'register']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('logout', [UsuarioController::class, 'logout']);
     Route::get('profile', [UsuarioController::class, 'profile']);
+
+    // Rutas CRUD para clientes
+    Route::apiResource('clientes', ClienteController::class);
 });

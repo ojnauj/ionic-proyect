@@ -1,0 +1,233 @@
+<ion-header [translucent]="true" class="modal-header">
+  <ion-toolbar class="modal-toolbar">
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()" fill="clear" class="close-button">
+        <ion-icon name="close" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="modal-content">
+  <div class="form-container">
+    <!-- Hero Section -->
+    <div class="form-hero">
+      <div class="hero-content">
+        <div class="hero-icon">
+          <ion-icon name="{{ isEdit ? 'create' : 'person-add' }}"></ion-icon>
+        </div>
+        <div class="hero-text">
+          <h1 class="hero-title">{{ isEdit ? 'Editar Cliente' : 'Nuevo Cliente' }}</h1>
+          <p class="hero-subtitle">{{ isEdit ? 'Actualiza la información del cliente' : 'Completa los datos del nuevo cliente' }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Card -->
+    <ion-card class="form-card">
+      <ion-card-content class="form-content">
+        <form (ngSubmit)="onSubmit()" #clienteForm="ngForm" class="cliente-form">
+          
+          <!-- Primera fila -->
+          <div class="form-row">
+            <div class="form-group">
+              <div class="input-container">
+                <div class="input-header">
+                  <ion-icon name="business" class="input-icon"></ion-icon>
+                  <label class="input-label">
+                    Tipo de Cliente *
+                  </label>
+                </div>
+                <ion-input 
+                  type="text" 
+                  [(ngModel)]="clienteData.tipo_cliente" 
+                  name="tipo_cliente"
+                  placeholder="Natural, Jurídico"
+                  class="custom-input"
+                  maxlength="20"
+                  required>
+                </ion-input>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-container">
+                <div class="input-header">
+                  <ion-icon name="card" class="input-icon"></ion-icon>
+                  <label class="input-label">
+                    Tipo de Documento *
+                  </label>
+                </div>
+                <ion-input 
+                  type="text" 
+                  [(ngModel)]="clienteData.tipo_documento" 
+                  name="tipo_documento"
+                  placeholder="DNI, RUC, Carnet"
+                  class="custom-input"
+                  maxlength="30"
+                  required>
+                </ion-input>
+              </div>
+            </div>
+          </div>
+
+          <!-- Segunda fila -->
+          <div class="form-row">
+            <div class="form-group">
+              <div class="input-container">
+                <div class="input-header">
+                  <ion-icon name="document-text" class="input-icon"></ion-icon>
+                  <label class="input-label">
+                    Número de Documento *
+                  </label>
+                </div>
+                <ion-input 
+                  type="text" 
+                  [(ngModel)]="clienteData.numero_documento" 
+                  name="numero_documento"
+                  placeholder="Ingresa el número"
+                  class="custom-input"
+                  maxlength="20"
+                  required>
+                </ion-input>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-container">
+                <div class="input-header">
+                  <ion-icon name="person" class="input-icon"></ion-icon>
+                  <label class="input-label">
+                    Nombres Completos *
+                  </label>
+                </div>
+                <ion-input 
+                  type="text" 
+                  [(ngModel)]="clienteData.nombres" 
+                  name="nombres"
+                  placeholder="Nombres y apellidos"
+                  class="custom-input"
+                  required>
+                </ion-input>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tercera fila -->
+          <div class="form-row">
+            <div class="form-group">
+              <div class="input-container">
+                <div class="input-header">
+                  <ion-icon name="location" class="input-icon"></ion-icon>
+                  <label class="input-label">
+                    Dirección *
+                  </label>
+                </div>
+                <ion-input 
+                  type="text" 
+                  [(ngModel)]="clienteData.direccion" 
+                  name="direccion"
+                  placeholder="Dirección completa"
+                  class="custom-input"
+                  required>
+                </ion-input>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-container">
+                <div class="input-header">
+                  <ion-icon name="call" class="input-icon"></ion-icon>
+                  <label class="input-label">
+                    Teléfono *
+                  </label>
+                </div>
+                <ion-input 
+                  type="tel" 
+                  [(ngModel)]="clienteData.telefono" 
+                  name="telefono"
+                  placeholder="987654321"
+                  class="custom-input"
+                  maxlength="9"
+                  minlength="9"
+                  pattern="[0-9]{9}"
+                  required>
+                </ion-input>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cuarta fila -->
+          <div class="form-row">
+            <div class="form-group">
+              <div class="input-container">
+                <div class="input-header">
+                  <ion-icon name="mail" class="input-icon"></ion-icon>
+                  <label class="input-label">
+                    Correo Electrónico *
+                  </label>
+                </div>
+                <ion-input 
+                  type="email" 
+                  [(ngModel)]="clienteData.correo" 
+                  name="correo"
+                  placeholder="correo@ejemplo.com"
+                  class="custom-input"
+                  required>
+                </ion-input>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="toggle-container">
+                <div class="input-header">
+                  <ion-icon name="power" class="input-icon"></ion-icon>
+                  <label class="toggle-label">
+                    Estado del Cliente
+                  </label>
+                </div>
+                <div class="toggle-content">
+                  <ion-toggle 
+                    [(ngModel)]="clienteData.estado" 
+                    name="estado"
+                    [checked]="clienteData.estado"
+                    class="custom-toggle">
+                  </ion-toggle>
+                  <div class="status-badge" [class.active]="clienteData.estado" [class.inactive]="!clienteData.estado">
+                    <ion-icon [name]="clienteData.estado ? 'checkmark-circle' : 'close-circle'" class="status-icon"></ion-icon>
+                    <span class="status-text">{{ clienteData.estado ? 'Activo' : 'Inactivo' }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Botones de acción -->
+          <div class="form-actions">
+            <ion-button 
+              type="button" 
+              expand="block" 
+              fill="outline" 
+              class="cancel-button"
+              (click)="dismiss()">
+              <ion-icon name="close-circle" slot="start"></ion-icon>
+              Cancelar
+            </ion-button>
+
+            <ion-button 
+              type="submit" 
+              expand="block" 
+              class="submit-button"
+              [disabled]="!clienteForm.valid || isLoading">
+              <ion-spinner *ngIf="isLoading" name="crescent" class="button-spinner"></ion-spinner>
+              <ion-icon *ngIf="!isLoading" [name]="isEdit ? 'save' : 'add-circle'" slot="start"></ion-icon>
+              <span *ngIf="!isLoading" class="button-text">
+                {{ isEdit ? 'Actualizar Cliente' : 'Crear Cliente' }}
+              </span>
+            </ion-button>
+          </div>
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

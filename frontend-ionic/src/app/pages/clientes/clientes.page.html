@@ -1,0 +1,171 @@
+<ion-content [fullscreen]="true" class="clientes-background">
+  <!-- Header con glass effect -->
+  <ion-header [translucent]="true" class="dashboard-header">
+    <ion-toolbar class="header-toolbar">
+      <ion-buttons slot="start">
+        <ion-button (click)="goBack()" fill="clear" class="back-button">
+          <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title class="header-title">Clientes</ion-title>
+      
+      <ion-buttons slot="end">
+        <ion-button (click)="logout()" fill="clear" class="logout-button">
+          <ion-icon name="log-out" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="dashboard-container">
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <div class="welcome-content">
+        <h1 class="welcome-title">Gestión de</h1>
+        <h2 class="user-name">Clientes</h2>
+        <p class="welcome-subtitle">Administra tu lista de clientes</p>
+      </div>
+      <div class="user-avatar">
+        <div class="avatar-circle">
+          <ion-icon name="people"></ion-icon>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Cards Grid -->
+    <div class="stats-grid">
+      <ion-card class="stat-card glass-effect" (click)="loadClientes()">
+        <div class="stat-icon primary">
+          <ion-icon name="refresh"></ion-icon>
+        </div>
+        <div class="stat-content">
+          <h3 class="stat-value">{{ clientes.length }}</h3>
+          <p class="stat-label">Total Clientes</p>
+        </div>
+      </ion-card>
+
+      <ion-card class="stat-card glass-effect">
+        <div class="stat-icon secondary">
+          <ion-icon name="business"></ion-icon>
+        </div>
+        <div class="stat-content">
+          <h3 class="stat-value">{{ getClientesActivos() }}</h3>
+          <p class="stat-label">Clientes Activos</p>
+        </div>
+      </ion-card>
+
+      <ion-card class="stat-card glass-effect">
+        <div class="stat-icon tertiary">
+          <ion-icon name="time"></ion-icon>
+        </div>
+        <div class="stat-content">
+          <h3 class="stat-value">{{ currentDate }}</h3>
+          <p class="stat-label">Fecha Actual</p>
+        </div>
+      </ion-card>
+
+      <ion-card class="stat-card glass-effect" (click)="openCreateModal()">
+        <div class="stat-icon success">
+          <ion-icon name="add-circle"></ion-icon>
+        </div>
+        <div class="stat-content">
+          <h3 class="stat-value">Nuevo</h3>
+          <p class="stat-label">Agregar Cliente</p>
+        </div>
+      </ion-card>
+    </div>
+
+    <!-- Lista de Clientes -->
+    <ion-card class="clientes-card glass-effect">
+      <ion-card-header class="clientes-card-header">
+        <ion-card-title class="clientes-card-title">
+          Lista de Clientes
+        </ion-card-title>
+        <!-- <ion-button fill="clear" (click)="loadClientes()" class="refresh-button">
+          <ion-icon name="refresh" slot="icon-only"></ion-icon>
+        </ion-button> -->
+      </ion-card-header>
+
+      <ion-card-content class="clientes-card-content">
+        <!-- Loading State -->
+        <div *ngIf="isLoading" class="loading-state">
+          <ion-spinner name="crescent"></ion-spinner>
+          <p>Cargando clientes...</p>
+        </div>
+
+        <!-- Empty State -->
+        <div *ngIf="!isLoading && clientes.length === 0" class="empty-state">
+          <ion-icon name="people-outline" class="empty-icon"></ion-icon>
+          <h3>No hay clientes</h3>
+          <p>Comienza agregando tu primer cliente</p>
+          <ion-button (click)="openCreateModal()" class="empty-button">
+            <ion-icon name="add" slot="start"></ion-icon>
+            Agregar Cliente
+          </ion-button>
+        </div>
+
+        <!-- Clientes List -->
+        <div *ngIf="!isLoading && clientes.length > 0" class="clientes-list">
+          <div *ngFor="let cliente of clientes" class="cliente-card glass-effect">
+            <div class="cliente-main-content">
+              <!-- Avatar -->
+              <div class="cliente-avatar">
+                <div class="cliente-avatar-circle">
+                  {{ getClienteInitials(cliente.nombres) }}
+                </div>
+              </div>
+              
+              <!-- Información Principal -->
+              <div class="cliente-info">
+                <h2 class="cliente-name">{{ cliente.nombres }}</h2>
+                <p class="cliente-documento">
+                  {{ cliente.tipo_documento }}: {{ cliente.numero_documento }}
+                </p>
+                
+                <div class="cliente-contact-info">
+                  <div class="contact-row">
+                    <div class="contact-item">
+                      <ion-icon name="call" class="contact-icon call"></ion-icon>
+                      <span class="contact-text">{{ cliente.telefono }}</span>
+                    </div>
+                    <div class="contact-item">
+                      <ion-icon name="mail" class="contact-icon mail"></ion-icon>
+                      <span class="contact-text">{{ cliente.correo }}</span>
+                    </div>
+                  </div>
+                  <div class="contact-item full-width">
+                    <ion-icon name="location" class="contact-icon location"></ion-icon>
+                    <span class="contact-text">{{ cliente.direccion }}</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Estado y Tipo -->
+              <div class="cliente-meta">
+                <div class="status-container">
+                  <div class="status-indicator" [class.active]="cliente.estado" [class.inactive]="!cliente.estado">
+                    <div class="status-dot"></div>
+                    <span class="status-text">{{ cliente.estado ? 'Activo' : 'Inactivo' }}</span>
+                  </div>
+                </div>
+                <div class="tipo-container">
+                  <span class="tipo-text">{{ cliente.tipo_cliente }}</span>
+                </div>
+              </div>
+
+              <!-- Acciones -->
+              <div class="cliente-actions">
+                <button class="action-btn edit-btn" (click)="openEditModal(cliente)">
+                  <ion-icon name="create"></ion-icon>
+                </button>
+                <button class="action-btn delete-btn" (click)="confirmDelete(cliente)">
+                  <ion-icon name="trash"></ion-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

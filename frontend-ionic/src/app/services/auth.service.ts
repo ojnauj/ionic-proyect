@@ -1,6 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import axios from 'axios';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 export class AuthService {
   private router = inject(Router);
   
-  private apiUrl = 'http://localhost:8000/api';
+  private apiUrl = environment.apiUrl;
   private token: string = '';
   private user: any = null;
 

@@ -27,7 +27,10 @@ import {
   calendar,
   trendingUp,
   personCircle,
-  key
+  key,
+  people,
+  cube,
+  chevronForward
 } from 'ionicons/icons';
 
 @Component({
@@ -70,7 +73,10 @@ export class DashboardPage implements OnInit {
       calendar,
       trendingUp,
       personCircle,
-      key
+      key,
+      people,
+      cube,
+      chevronForward
     });
   }
 
@@ -120,6 +126,10 @@ export class DashboardPage implements OnInit {
     if (hour < 12) return 'Buenos días';
     if (hour < 18) return 'Buenas tardes';
     return 'Buenas noches';
+  }
+
+  navigateTo(route: string) {
+    this.router.navigate([`/${route}`]);
   }
 
   async logout() {
