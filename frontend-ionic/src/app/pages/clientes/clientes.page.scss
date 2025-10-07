@@ -1,5 +1,5 @@
 .clientes-background {
-  --background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --background: linear-gradient(135deg, #6fc7f6 0%, #86bdf4 100%);
   position: relative;
   overflow: hidden;
 
@@ -345,10 +345,10 @@
               width: 56px;
               height: 56px;
               border-radius: 50%;
-              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); // Color vivo para el avatar
+              background: linear-gradient(135deg, #6fc7f6 0%, #6fc7f6 100%); // Color vivo para el avatar
               display: flex;
               align-items: center;
-              justify-content: center;
+              justify-content: center;  
               color: white;
               font-weight: 700;
               font-size: 1.2rem;

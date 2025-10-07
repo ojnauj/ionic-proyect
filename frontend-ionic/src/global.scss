@@ -9,6 +9,13 @@
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
 
+/* Global Blue Color */
+:root {
+  --ion-color-primary: #007bff; /* Color azul */
+  --ion-color-primary-rgb: 0, 123, 255;
+  --ion-color-primary-contrast: #ffffff; /* Blanco como contraste */
+}
+
 /* Core CSS required for Ionic components to work properly */
 @import "@ionic/angular/css/core.css";
 
@@ -44,7 +51,8 @@ ion-modal.custom-modal {
   --max-width: 1000px;
   --border-radius: 16px;
   --box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
-  
+  --background: #007bff; /* Fondo azul */
+
   &.ion-modal-show {
     animation: modalEnter 0.3s ease-out;
   }
@@ -108,21 +116,29 @@ ion-button {
   --border-radius: 12px;
   --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   font-weight: 600;
-  
-  &.button-disabled {
-    opacity: 0.6;
-  }
+  --background: var(--ion-color-primary); /* Fondo azul */
+  --color: white; /* Texto blanco */
+}
+
+ion-button:hover {
+  --background: darken(var(--ion-color-primary), 10%); /* Hover con un azul más oscuro */
+}
+
+ion-button.button-disabled {
+  opacity: 0.6;
 }
 
 /* Global Card Styles */
 ion-card {
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  background: #007bff; /* Fondo azul */
+  color: white; /* Texto blanco */
 }
 
 /* Loading Spinner Global */
 ion-spinner {
-  --color: var(--ion-color-primary);
+  --color: var(--ion-color-primary); /* Spinner azul */
 }
 
 /* Responsive Utilities */
@@ -192,17 +208,17 @@ ion-spinner {
   font-weight: 600;
   padding: 4px 8px;
   border-radius: 12px;
-  
+
   &.active {
-    background: #d4edda;
-    color: #155724;
+    background: #007bff; /* Azul */
+    color: white;
   }
-  
+
   &.inactive {
     background: #f8d7da;
     color: #721c24;
   }
-  
+
   &.pending {
     background: #fff3cd;
     color: #856404;
@@ -224,7 +240,7 @@ ion-spinner {
 }
 
 .text-primary {
-  color: var(--ion-color-primary);
+  color: var(--ion-color-primary); /* Usa el color azul */
 }
 
 .text-success {
@@ -305,7 +321,7 @@ ion-toggle.custom-toggle {
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  
+
   .loading-content {
     background: white;
     padding: 20px;

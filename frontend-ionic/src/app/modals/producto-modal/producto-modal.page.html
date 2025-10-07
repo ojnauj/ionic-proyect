@@ -32,7 +32,6 @@
             <div class="form-group">
               <div class="input-container">
                 <div class="input-header">
-                  <ion-icon name="cube" class="input-icon"></ion-icon>
                   <label class="input-label">
                     Nombre del Producto *
                   </label>
@@ -41,7 +40,7 @@
                   type="text" 
                   [(ngModel)]="productoData.nombre_producto" 
                   name="nombre_producto"
-                  placeholder="Nombre del producto"
+                  placeholder=""
                   class="custom-input"
                   maxlength="100"
                   required>
@@ -52,7 +51,6 @@
             <div class="form-group">
               <div class="input-container">
                 <div class="input-header">
-                  <ion-icon name="document-text" class="input-icon"></ion-icon>
                   <label class="input-label">
                     Descripción *
                   </label>
@@ -61,7 +59,7 @@
                   type="text" 
                   [(ngModel)]="productoData.descripcion" 
                   name="descripcion"
-                  placeholder="Descripción del producto"
+                  placeholder=""
                   class="custom-input"
                   maxlength="500"
                   required>
@@ -75,7 +73,6 @@
             <div class="form-group">
               <div class="input-container">
                 <div class="input-header">
-                  <ion-icon name="pricetag" class="input-icon"></ion-icon>
                   <label class="input-label">
                     Precio *
                   </label>
@@ -84,7 +81,7 @@
                   type="number" 
                   [(ngModel)]="productoData.precio" 
                   name="precio"
-                  placeholder="Precio del producto"
+                  placeholder=""
                   class="custom-input"
                   required>
                 </ion-input>
@@ -94,7 +91,6 @@
             <div class="form-group">
               <div class="input-container">
                 <div class="input-header">
-                  <ion-icon name="clipboard" class="input-icon"></ion-icon>
                   <label class="input-label">
                     Stock *
                   </label>
@@ -103,7 +99,7 @@
                   type="number" 
                   [(ngModel)]="productoData.stock" 
                   name="stock"
-                  placeholder="Cantidad en stock"
+                  placeholder=""
                   class="custom-input"
                   required>
                 </ion-input>
@@ -116,7 +112,6 @@
             <div class="form-group">
               <div class="input-container">
                 <div class="input-header">
-                  <ion-icon name="analytics" class="input-icon"></ion-icon>
                   <label class="input-label">
                     Unidad de Medida *
                   </label>
@@ -125,7 +120,7 @@
                   type="text" 
                   [(ngModel)]="productoData.unidad_medida" 
                   name="unidad_medida"
-                  placeholder="Unidad de medida"
+                  placeholder=""
                   class="custom-input"
                   required>
                 </ion-input>
@@ -135,7 +130,6 @@
             <div class="form-group">
               <div class="input-container">
                 <div class="input-header">
-                  <ion-icon name="barbell" class="input-icon"></ion-icon>
                   <label class="input-label">
                     Marca
                   </label>
@@ -144,56 +138,13 @@
                   type="text" 
                   [(ngModel)]="productoData.marca" 
                   name="marca"
-                  placeholder="Marca del producto"
+                  placeholder=""
                   class="custom-input">
                 </ion-input>
               </div>
             </div>
           </div>
 
-          <!-- Cuarta fila -->
-          <div class="form-row">
-            <div class="form-group">
-              <div class="input-container">
-                <div class="input-header">
-                  <ion-icon name="image" class="input-icon"></ion-icon>
-                  <label class="input-label">
-                    Imagen
-                  </label>
-                </div>
-                <ion-input 
-                  type="text" 
-                  [(ngModel)]="productoData.imagen" 
-                  name="imagen"
-                  placeholder="URL de imagen"
-                  class="custom-input">
-                </ion-input>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <div class="toggle-container">
-                <div class="input-header">
-                  <ion-icon name="power" class="input-icon"></ion-icon>
-                  <label class="toggle-label">
-                    Estado del Producto
-                  </label>
-                </div>
-                <div class="toggle-content">
-                  <ion-toggle 
-                    [(ngModel)]="productoData.estado" 
-                    name="estado"
-                    [checked]="productoData.estado"
-                    class="custom-toggle">
-                  </ion-toggle>
-                  <div class="status-badge" [class.active]="productoData.estado" [class.inactive]="!productoData.estado">
-                    <ion-icon [name]="productoData.estado ? 'checkmark-circle' : 'close-circle'" class="status-icon"></ion-icon>
-                    <span class="status-text">{{ productoData.estado ? 'Activo' : 'Inactivo' }}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
           <!-- Botones de acción -->
           <div class="form-actions">

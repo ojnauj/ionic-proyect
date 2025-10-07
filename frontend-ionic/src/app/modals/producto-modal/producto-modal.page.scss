@@ -1,5 +1,5 @@
 .modal-header {
-  --background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --background: linear-gradient(135deg, #6fc7f6 0%, #6fc7f6 100%);
 
   .modal-toolbar {
     --background: transparent;
@@ -33,7 +33,7 @@
   --padding-end: 0;
   --padding-top: 0;
   --padding-bottom: 0;
-  padding-top: 70px; // Para que el header no tape el contenido
+  padding-top: 0px; // Para que el header no tape el contenido
 }
 
 .form-container {
@@ -42,7 +42,7 @@
 }
 
 .form-hero {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #6fc7f6 0%, #6fc7f6 100%);
   padding: 30px 24px 25px;
   color: white;
   position: relative;
@@ -141,7 +141,7 @@
 
           .input-icon {
             font-size: 1.2rem;
-            color: #667eea;
+            color: #6fc7f6;
             min-width: 20px;
           }
 
@@ -168,14 +168,14 @@
           transition: all 0.3s ease;
 
           &::placeholder {
-            color: #8e8e93;
+            color: #6fc7f6;
             font-size: 0.95rem;
             font-weight: 400;
           }
 
           &.ion-focused {
             --background: white;
-            border-color: #667eea;
+            border-color: #6fc7f6;
             box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
           }
         }
@@ -190,7 +190,7 @@
 
           .input-icon {
             font-size: 1.2rem;
-            color: #667eea;
+            color: #6fc7f6;
             min-width: 20px;
           }
 
@@ -285,20 +285,20 @@
 
   .cancel-button {
     --background: white;
-    --color: #667eea;
-    --border-color: #667eea;
+    --color: #6fc7f6;
+    --border-color: #6fc7f6;
     --border-width: 2px;
     --background-activated: rgba(102, 126, 234, 0.1);
 
     ion-icon {
-      color: #667eea;
+      color: #6fc7f6;
     }
   }
 
   .submit-button {
-    --background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --background: linear-gradient(135deg, #6fc7f6 0%, #6fc7f6 100%);
     --color: white;
-    --background-activated: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+    --background-activated: linear-gradient(135deg, #6fc7f6 0%, #6fc7f6 100%);
 
     &:disabled {
       --background: #c6c6c8;

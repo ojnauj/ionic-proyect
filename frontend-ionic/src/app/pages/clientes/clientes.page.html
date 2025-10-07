@@ -21,48 +21,13 @@
     <!-- Hero Section -->
     <div class="hero-section">
       <div class="welcome-content">
-        <h1 class="welcome-title">Gestión de</h1>
         <h2 class="user-name">Clientes</h2>
-        <p class="welcome-subtitle">Administra tu lista de clientes</p>
       </div>
-      <div class="user-avatar">
-        <div class="avatar-circle">
-          <ion-icon name="people"></ion-icon>
-        </div>
-      </div>
+     
     </div>
 
     <!-- Stats Cards Grid -->
     <div class="stats-grid">
-      <ion-card class="stat-card glass-effect" (click)="loadClientes()">
-        <div class="stat-icon primary">
-          <ion-icon name="refresh"></ion-icon>
-        </div>
-        <div class="stat-content">
-          <h3 class="stat-value">{{ clientes.length }}</h3>
-          <p class="stat-label">Total Clientes</p>
-        </div>
-      </ion-card>
-
-      <ion-card class="stat-card glass-effect">
-        <div class="stat-icon secondary">
-          <ion-icon name="business"></ion-icon>
-        </div>
-        <div class="stat-content">
-          <h3 class="stat-value">{{ getClientesActivos() }}</h3>
-          <p class="stat-label">Clientes Activos</p>
-        </div>
-      </ion-card>
-
-      <ion-card class="stat-card glass-effect">
-        <div class="stat-icon tertiary">
-          <ion-icon name="time"></ion-icon>
-        </div>
-        <div class="stat-content">
-          <h3 class="stat-value">{{ currentDate }}</h3>
-          <p class="stat-label">Fecha Actual</p>
-        </div>
-      </ion-card>
 
       <ion-card class="stat-card glass-effect" (click)="openCreateModal()">
         <div class="stat-icon success">
@@ -121,37 +86,9 @@
                 <p class="cliente-documento">
                   {{ cliente.tipo_documento }}: {{ cliente.numero_documento }}
                 </p>
-                
-                <div class="cliente-contact-info">
-                  <div class="contact-row">
-                    <div class="contact-item">
-                      <ion-icon name="call" class="contact-icon call"></ion-icon>
-                      <span class="contact-text">{{ cliente.telefono }}</span>
-                    </div>
-                    <div class="contact-item">
-                      <ion-icon name="mail" class="contact-icon mail"></ion-icon>
-                      <span class="contact-text">{{ cliente.correo }}</span>
-                    </div>
-                  </div>
-                  <div class="contact-item full-width">
-                    <ion-icon name="location" class="contact-icon location"></ion-icon>
-                    <span class="contact-text">{{ cliente.direccion }}</span>
-                  </div>
-                </div>
               </div>
 
-              <!-- Estado y Tipo -->
-              <div class="cliente-meta">
-                <div class="status-container">
-                  <div class="status-indicator" [class.active]="cliente.estado" [class.inactive]="!cliente.estado">
-                    <div class="status-dot"></div>
-                    <span class="status-text">{{ cliente.estado ? 'Activo' : 'Inactivo' }}</span>
-                  </div>
-                </div>
-                <div class="tipo-container">
-                  <span class="tipo-text">{{ cliente.tipo_cliente }}</span>
-                </div>
-              </div>
+              
 
               <!-- Acciones -->
               <div class="cliente-actions">

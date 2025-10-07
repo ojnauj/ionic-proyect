@@ -21,48 +21,13 @@
     <!-- Hero Section -->
     <div class="hero-section">
       <div class="welcome-content">
-        <h1 class="welcome-title">Gestión de</h1>
         <h2 class="user-name">Productos</h2>
-        <p class="welcome-subtitle">Administra tu catálogo de productos</p>
       </div>
-      <div class="user-avatar">
-        <div class="avatar-circle">
-          <ion-icon name="cube"></ion-icon>
-        </div>
-      </div>
+      
     </div>
 
     <!-- Stats Cards Grid -->
     <div class="stats-grid">
-      <ion-card class="stat-card glass-effect" (click)="loadProductos()">
-        <div class="stat-icon primary">
-          <ion-icon name="refresh"></ion-icon>
-        </div>
-        <div class="stat-content">
-          <h3 class="stat-value">{{ productos.length }}</h3>
-          <p class="stat-label">Total Productos</p>
-        </div>
-      </ion-card>
-
-      <ion-card class="stat-card glass-effect">
-        <div class="stat-icon secondary">
-          <ion-icon name="checkmark-circle"></ion-icon>
-        </div>
-        <div class="stat-content">
-          <h3 class="stat-value">{{ getProductosActivos() }}</h3>
-          <p class="stat-label">Productos Activos</p>
-        </div>
-      </ion-card>
-
-      <ion-card class="stat-card glass-effect">
-        <div class="stat-icon tertiary">
-          <ion-icon name="time"></ion-icon>
-        </div>
-        <div class="stat-content">
-          <h3 class="stat-value">{{ currentDate }}</h3>
-          <p class="stat-label">Fecha Actual</p>
-        </div>
-      </ion-card>
 
       <ion-card class="stat-card glass-effect" (click)="openCreateModal()">
         <div class="stat-icon success">
@@ -118,37 +83,9 @@
                 <p class="producto-codigo">
                   Código: {{ producto.codigo }}
                 </p>
-                
-                <div class="producto-details">
-                  <div class="details-row">
-                    <div class="detail-item">
-                      <ion-icon name="pricetag" class="detail-icon price"></ion-icon>
-                      <span class="detail-text">${{ producto.precio }}</span>
-                    </div>
-                    <div class="detail-item">
-                      <ion-icon name="trending-up" class="detail-icon stock"></ion-icon>
-                      <span class="detail-text">{{ producto.stock }} unidades</span>
-                    </div>
-                  </div>
-                  <div class="detail-item full-width">
-                    <ion-icon name="document-text" class="detail-icon desc"></ion-icon>
-                    <span class="detail-text">{{ producto.descripcion || 'Sin descripción' }}</span>
-                  </div>
-                </div>
+
               </div>
 
-              <!-- Estado y Categoría -->
-              <div class="producto-meta">
-                <div class="status-container">
-                  <div class="status-indicator" [class.active]="producto.estado" [class.inactive]="!producto.estado">
-                    <div class="status-dot"></div>
-                    <span class="status-text">{{ producto.estado ? 'Activo' : 'Inactivo' }}</span>
-                  </div>
-                </div>
-                <div class="categoria-container">
-                  <span class="categoria-text">{{ producto.categoria || 'General' }}</span>
-                </div>
-              </div>
 
               <!-- Acciones -->
               <div class="producto-actions">

@@ -1,5 +1,5 @@
 .login-background {
-  --background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --background: linear-gradient(135deg, #a8d0e6 0%, #c2d9f0 100%);
   position: relative;
   overflow: hidden;
 
@@ -17,6 +17,8 @@
 .login-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   min-height: 100%;
   padding: 0;
   position: relative;
@@ -25,7 +27,7 @@
 
 .header-section {
   text-align: center;
-  padding: 60px 40px 40px;
+  padding: 40px 40px 20px;
   background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
   backdrop-filter: blur(20px);
   border-radius: 0 0 40px 40px;
@@ -33,20 +35,9 @@
   border: 1px solid rgba(255,255,255,0.2);
   flex-shrink: 0;
 
-  .app-title {
-    font-size: 3rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin: 0 0 8px 0;
-    text-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  }
-
   .app-subtitle {
     color: rgba(255, 255, 255, 0.9);
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     font-weight: 500;
     margin: 0;
     letter-spacing: 0.5px;
@@ -57,7 +48,9 @@
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(40px);
   border-radius: 32px;
-  margin: 0 24px 40px;
+  margin: 0 24px;
+  width: 90%;
+  max-width: 400px;
   box-shadow: 
     0 20px 60px rgba(0, 0, 0, 0.1),
     0 0 0 1px rgba(255, 255, 255, 0.2);
@@ -67,7 +60,7 @@
 
   ion-card-header {
     padding: 32px 32px 16px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #89C2D9 0%, #A9D6E5 100%);
     
     .card-title {
       text-align: center;
@@ -75,7 +68,7 @@
       font-weight: 700;
       font-size: 1.8rem;
       margin: 0;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      text-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
   }
 
@@ -98,9 +91,9 @@
 
     &:focus-within {
       --background: #ffffff;
-      border-color: #667eea;
+      border-color: #89C2D9;
       transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+      box-shadow: 0 8px 25px rgba(137, 194, 217, 0.15);
     }
 
     .input-label {
@@ -131,20 +124,20 @@
 
   .submit-button {
     --border-radius: 20px;
-    --box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    --box-shadow: 0 8px 25px rgba(137, 194, 217, 0.4);
     height: 56px;
     font-weight: 700;
     font-size: 1.1rem;
     letter-spacing: 0.5px;
     margin: 24px 0 16px;
-    --background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    --background-activated: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
-    --background-hover: linear-gradient(135deg, #6d83ee 0%, #7f55b4 100%);
+    --background: linear-gradient(135deg, #89C2D9 0%, #A9D6E5 100%);
+    --background-activated: linear-gradient(135deg, #7AB0C9 0%, #97C6D9 100%);
+    --background-hover: linear-gradient(135deg, #98CEE3 0%, #B8DFED 100%);
     transition: all 0.3s ease;
 
     &:active {
       transform: scale(0.98);
-      --box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+      --box-shadow: 0 4px 15px rgba(137, 194, 217, 0.3);
     }
   }
 
@@ -160,7 +153,7 @@
     }
 
     .toggle-link {
-      color: #667eea;
+      color: #89C2D9;
       font-weight: 700;
       text-decoration: none;
       cursor: pointer;
@@ -168,7 +161,7 @@
       transition: all 0.3s ease;
 
       &:active {
-        color: #5a6fd8;
+        color: #7AB0C9;
         transform: scale(0.95);
       }
     }
@@ -231,7 +224,7 @@
     left: 20px;
     right: 20px;
     height: 2px;
-    background: linear-gradient(90deg, #667eea, #764ba2);
+    background: linear-gradient(90deg, #89C2D9, #A9D6E5);
     transform: scaleX(0);
     transition: transform 0.3s ease;
   }

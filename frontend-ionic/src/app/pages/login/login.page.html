@@ -1,10 +1,7 @@
 <ion-content [fullscreen]="true" class="login-background" [scrollY]="true">
   <div class="login-container">
     <!-- Header con diseño Samsung One UI -->
-    <div class="header-section glass-effect">
-      <h1 class="app-title">MiApp</h1>
-      <p class="app-subtitle">{{ isRegister ? 'Crea tu cuenta' : 'Bienvenido de vuelta' }}</p>
-    </div>
+    
 
     <!-- Card de login/register con glassmorphism -->
     <ion-card class="auth-card">
@@ -23,7 +20,7 @@
               type="text" 
               [(ngModel)]="nombre" 
               name="nombre"
-              placeholder="Ingresa tu nombre completo"
+              placeholder=""
               class="custom-input"
               required>
             </ion-input>
@@ -36,7 +33,7 @@
               type="email" 
               [(ngModel)]="email" 
               name="email"
-              placeholder="tu.correo@ejemplo.com"
+              placeholder=""
               class="custom-input"
               required>
             </ion-input>
@@ -49,7 +46,7 @@
               type="password" 
               [(ngModel)]="password" 
               name="password"
-              placeholder="••••••••"
+              placeholder=""
               class="custom-input"
               required>
             </ion-input>
@@ -71,7 +68,7 @@
         <!-- Toggle entre login/register -->
         <div class="toggle-section">
           <p class="toggle-text">
-            {{ isRegister ? '¿Ya tienes cuenta?' : '¿Primera vez aquí?' }}
+            {{ isRegister ? '¿Ya tienes cuenta?' : '¿No tienes una cuenta?' }}
             <a (click)="toggleMode()" class="toggle-link">
               {{ isRegister ? 'Iniciar sesión' : 'Crear cuenta' }}
             </a>
@@ -80,9 +77,5 @@
       </ion-card-content>
     </ion-card>
 
-    <!-- Footer minimalista -->
-    <div class="footer-section">
-      <p class="footer-text">© 2025 MiApp · Diseñado con ❤️</p>
-    </div>
   </div>
 </ion-content>
